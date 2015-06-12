@@ -9,7 +9,7 @@
 #import <Cocoa/Cocoa.h>
 
 @interface JKConfigurationHeaderRowView : NSTableRowView
-
+@property (readwrite, weak) NSTableView *tableView;
 @end
 
 @interface JKConfigurationRowView : NSTableRowView

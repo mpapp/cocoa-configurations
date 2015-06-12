@@ -17,6 +17,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code here.
+        self.backgroundColor = [NSColor redColor];
     }
     
     return self;
@@ -54,6 +55,17 @@
 	}
 	
 	_pressed = NO;
+}
+
+- (void)drawRect:(NSRect)dirtyRect {
+    if ([self.tableView rowForView:self] > 0) {
+        NSBezierPath* bezierPath = NSBezierPath.bezierPath;
+        [bezierPath moveToPoint: NSMakePoint(0, 0)];
+        [bezierPath lineToPoint: NSMakePoint(dirtyRect.size.width, 0)];
+        [[NSColor controlShadowColor] setStroke];
+        [bezierPath setLineWidth:1];
+        [bezierPath stroke];
+    }
 }
 
 @end
